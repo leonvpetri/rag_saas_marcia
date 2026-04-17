@@ -152,10 +152,10 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen w-full font-sans bg-[#F9F7F5] selection:bg-orange-200">
+    <div className="flex flex-col lg:flex-row h-[100dvh] w-full font-sans bg-[#F9F7F5] selection:bg-orange-200 overflow-hidden">
       
       {/* Left Column: Chat Interface */}
-      <div className="flex flex-col w-full lg:w-[40%] min-w-[380px] border-r border-[#EBE4DC] bg-white shadow-[10px_0_30px_rgba(0,0,0,0.03)] z-10">
+      <div className={`flex flex-col w-full lg:w-[40%] lg:min-w-[380px] border-r border-[#EBE4DC] bg-white shadow-[10px_0_30px_rgba(0,0,0,0.03)] z-20 shrink-0 transition-all duration-500 ease-in-out ${showPdf ? 'h-[45%] lg:h-full' : 'h-full'}`}>
         
         {/* Header */}
         <header className="flex flex-col px-7 py-5 border-b border-[#EBE4DC] bg-white shrink-0">
@@ -313,7 +313,7 @@ export default function App() {
       </div>
 
       {/* Right Column: PDF Viewer */}
-      <div className="hidden lg:flex flex-col flex-1 bg-[#F9F7F5] border-l border-[#EBE4DC] relative shadow-2xl overflow-hidden">
+      <div className={`${showPdf ? 'flex' : 'hidden'} lg:flex flex-col flex-1 bg-[#F9F7F5] border-t lg:border-t-0 lg:border-l border-[#EBE4DC] relative shadow-xl lg:shadow-2xl overflow-hidden z-10`}>
         <AnimatePresence mode="wait">
           {!showPdf ? (
             <motion.div 
